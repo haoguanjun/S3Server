@@ -210,6 +210,7 @@
             SetEndpoint();
             SetAccessKey();
             SetSecretKey();
+            SetProxy();
             InitS3Client();
         }
 
@@ -308,7 +309,7 @@
 
         static void SetEndpoint()
         {
-            _Endpoint = Inputty.GetString("Endpoint:", "http://s3.local.gd:8000/", false);
+            _Endpoint = Inputty.GetString("Endpoint:", "http://localhost:8000/", false);
         }
 
         static void SetAccessKey()
@@ -319,6 +320,11 @@
         static void SetSecretKey()
         {
             _SecretKey = Inputty.GetString("Secret key:", _SecretKey, false);
+        }
+
+        static void SetProxy()
+        {
+            _UseProxy = Inputty.GetBoolean("Use Proxy:", false);
         }
 
         static void InitS3Client()
